@@ -50,7 +50,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: app_production
   username: app
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
